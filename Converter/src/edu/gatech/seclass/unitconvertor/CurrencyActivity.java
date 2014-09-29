@@ -4,6 +4,9 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.RadioButton;
 
 public class CurrencyActivity extends ActionBarActivity {
 
@@ -31,4 +34,32 @@ public class CurrencyActivity extends ActionBarActivity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
+	
+	//Two convert methods
+	public String usd2euro(double usd){
+		double euro = 0.79 * usd;
+		return String.valueOf(euro);
+	}
+		
+	public String euro2usd(double euro){
+		double usd = euro/0.79;
+		return String.valueOf(usd);
+	}
+	//handle radio button click event
+	public void handleClick(View view){
+		boolean checked = ((RadioButton) view).isChecked();
+		EditText txt = (EditText) findViewById(R.id.EditText_curr);
+		double currentCurr = Double.parseDouble(txt.getText().toString());
+		switch(view.getId()){
+		case R.id.radio_usd:
+			if(checked)
+				txt.setText(euro2usd(currentCurr));
+			break;
+		case R.id.radio_euro:
+			if(checked)
+				txt.setText(usd2euro(currentCurr));
+			break;
+		}
+	}
+	
 }

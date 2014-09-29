@@ -9,8 +9,56 @@
     tools:context="edu.gatech.seclass.unitconvertor.DistanceActivity" >
 
     <TextView
+        android:id="@+id/textView_dist"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:layout_alignLeft="@+id/editText_dist"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="60dp"
+        android:text="Distance"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup_dist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editText_dist"
+        android:layout_below="@+id/editText_dist"
+        android:layout_marginTop="18dp" >
+
+        <RadioButton
+            android:id="@+id/radio_mile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/EditText_area"
+            android:layout_below="@+id/EditText_area"
+            android:text="Miles" 
+            android:onClick="handleClick"
+            />
+
+        <RadioButton
+            android:id="@+id/radio_km"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/EditText_area"
+            android:layout_below="@+id/radio1"
+            android:checked="true"
+            android:text="Kilometers" 
+            android:onClick="handleClick"
+            />
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/editText_dist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView_dist"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="17dp"
+        android:ems="10"
+        android:inputType="numberDecimal" >
+
+        <requestFocus />
+    </EditText>
 
 </RelativeLayout>

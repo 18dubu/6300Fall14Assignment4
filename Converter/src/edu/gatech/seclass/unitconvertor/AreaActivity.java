@@ -4,6 +4,9 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.RadioButton;
 
 public class AreaActivity extends ActionBarActivity {
 
@@ -30,5 +33,33 @@ public class AreaActivity extends ActionBarActivity {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+	
+	//Two convert methods
+	public String sf2sm(double sf){
+		double sm = 0.092903 * sf;
+		return String.valueOf(sm);
+	}
+		
+	public String sm2sf(double sm){
+		double sf = sm/0.092903;
+		return String.valueOf(sf);
+	}
+	//handle radio button click event
+	public void handleClick(View view){
+		boolean checked = ((RadioButton) view).isChecked();
+		EditText txt = (EditText) findViewById(R.id.EditText_area);
+		double currentArea = Double.parseDouble(txt.getText().toString());
+		switch(view.getId()){
+		case R.id.radio_sf:
+			if(checked)
+				txt.setText(sm2sf(currentArea));
+			break;
+		
+		case R.id.radio_sm:
+			if(checked)
+				txt.setText(sf2sm(currentArea));
+			break;
+		}
 	}
 }

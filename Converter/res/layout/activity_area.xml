@@ -9,8 +9,49 @@
     tools:context="edu.gatech.seclass.unitconvertor.AreaActivity" >
 
     <TextView
+        android:id="@+id/textView_area"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="Area"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/EditText_area"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView_area"
+        android:ems="10"
+        android:inputType="numberDecimal" >
+
+        <requestFocus />
+    </EditText>
+
+    <RadioGroup
+        android:id="@+id/radioGroup_area"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/EditText_area" >
+
+        <RadioButton
+            android:id="@+id/radio_sf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Square feet" 
+            android:onClick="handleClick"
+            />
+
+        <RadioButton
+            android:id="@+id/radio_sm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Square meters" 
+            android:onClick="handleClick"
+            />
+    </RadioGroup>
 
 </RelativeLayout>
